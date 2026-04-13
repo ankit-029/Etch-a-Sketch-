@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#grid-container {
+  border: 1px solid black;
+  height: 800px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
