@@ -23,6 +23,9 @@ function createGrid(n) {
 
       gridColumn.classList.add("grid-column");
       gridColumn.setAttribute("style", "flex: 1; border: 1px solid black");
+      gridColumn.onmousemove = (event) => {
+        event.target.style.backgroundColor = "red";
+      };
 
       gridRow.appendChild(gridColumn);
     }
@@ -37,3 +40,13 @@ gridSize.addEventListener("click", () => {
 });
 
 createGrid(16);
+
+const toggleBorder = document.querySelector("#toggle-border");
+toggleBorder.addEventListener("click", () => {
+  const cells = document.querySelectorAll(".grid-column");
+  cells.forEach((cell) => {
+    if (cell.style.border === "none")
+      cell.setAttribute("style", "border: 1px solid black");
+    else cell.style.border = "none";
+  });
+});
