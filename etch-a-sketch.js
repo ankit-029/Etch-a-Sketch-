@@ -22,7 +22,7 @@ function createGrid(n) {
       const gridColumn = document.createElement("div");
 
       gridColumn.classList.add("grid-column");
-      gridColumn.setAttribute("style", "flex: 1; border: 1px solid black");
+      gridColumn.setAttribute("style", "flex: 1; border: 0px solid black");
       gridColumn.onmousemove = (event) => {
         event.target.style.backgroundColor = "red";
       };
@@ -40,6 +40,9 @@ gridSize.addEventListener("click", () => {
 });
 
 createGrid(16);
+let gridBG = getComputedStyle(
+  document.querySelector("#grid-container"),
+).backgroundColor;
 
 const toggleBorder = document.querySelector("#toggle-border");
 toggleBorder.addEventListener("click", () => {
@@ -48,4 +51,10 @@ toggleBorder.addEventListener("click", () => {
     if (cell.style.borderWidth === "0px") cell.style.borderWidth = "1px";
     else cell.style.borderWidth = "0px";
   });
+});
+
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+  const cells = document.querySelectorAll(".grid-column");
+  cells.forEach((cell) => (cell.style.backgroundColor = gridBG));
 });
