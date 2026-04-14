@@ -45,8 +45,7 @@ const toggleBorder = document.querySelector("#toggle-border");
 toggleBorder.addEventListener("click", () => {
   const cells = document.querySelectorAll(".grid-column");
   cells.forEach((cell) => {
-    if (cell.style.border === "none")
-      cell.setAttribute("style", "border: 1px solid black");
-    else cell.style.border = "none";
+    if (cell.style.borderWidth === "0px") cell.style.borderWidth = "1px";
+    else cell.style.borderWidth = "0px";
   });
 });
